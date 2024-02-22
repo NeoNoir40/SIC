@@ -1,0 +1,48 @@
+// Fonts
+
+// Variables
+// Bootstrap
+
+// Tailwind
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.sombrita {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.sombrita-txt {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header div h1 {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header div div ul li a {
+    text-decoration: none;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header div div ul li a:hover {
+    text-decoration: none;
+}
+
+footer div div ul li a {
+    text-decoration: none;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+footer div h1 {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+footer {
+    box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25);
+}
