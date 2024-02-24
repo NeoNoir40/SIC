@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\StudentController as StudentControllerResource;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,7 @@ Route::get('/welcome', function () {
 Route::get('/',[LoginController::class,'login']);
 Route::get('/alumnos',[StudentController::class,'index']);
 Route::post('/alumnos',[StudentController::class,'store']);
+
+//Rutas con recursos
+
+Route::resource('estudiantes',StudentControllerResource::class);

@@ -49,7 +49,7 @@
     </header>
 
 
-    <main class="min-h-screen flex-grow flex items-center justify-center">
+    <main class="min-h-screen flex-grow flex items-center justify-center mt-[84.5px]">
         @yield('contenido')
     </main>
     <footer class="bg-[#7603f5]  text-white py-4 px-4 ">
