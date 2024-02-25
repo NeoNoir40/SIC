@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/js/app.js','resources/sass/app.scss'])
     <title>@yield('titulo')</title>
-
+    @stack('head')
 </head>
 
 <body class="min-h-screen flex flex-col justify-between ">
@@ -17,7 +17,7 @@
             <div class="ml-4 mt-auto mb-auto max-sm:hidden" id="nav-content">
                 <ul class="flex flex-col sm:flex-row max-sm:w-1/3 gap-4"> <!-- Utilizamos flex-col para dispositivos pequeños y flex-row para dispositivos más grandes -->
                     <li><a href="#">Calificaciones</a></li>
-                    <li><a href="#">Alumnos</a></li>
+                    <li><a href="/estudiantes">Alumnos</a></li>
                     <li><a href="#">Materias</a></li>
                     <li><a href="">Grupos</a></li>
                     <li><a href="#">Tutoria</a></li>

@@ -22,8 +22,7 @@ class StudentController extends Controller
     public function create()
 
     {   
-        $students = Student::all();
-        return view('create-student',compact('students'));
+        return view('students.create-student.');
     }
 
     /**
@@ -31,7 +30,19 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $students = new Student;
+        $students->student_name = $request->input('student_name');
+        $students->last_name = $request->input('last_name');
+        $students->id_student=$request->input('id_student');
+        $students->birth_date=$request->input('birth_date');
+        $students->comments=$request->input('comments');
+    
+
+        $students->save();
+        return redirect()->back();
+        
+
+
     }
 
     /**
@@ -45,24 +56,36 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        //
+       
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $students = Student::find($id);
+        $students->student_name = $request->input('student_name');
+        $students->last_name = $request->input('last_name');
+        $students->id_student=$request->input('id_student');
+        $students->birth_date=$request->input('birth_date');
+        $students->comments=$request->input('comments');
+    
+
+        $students->save();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $students = Student::find($id);
+        $students->delete();
+
+        return redirect()->back();
     }
 }
