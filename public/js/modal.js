@@ -1,31 +1,39 @@
-const showModal = document.querySelector(".modal_button");
-const modal = document.querySelector('.modal')
-const showModalDelete = document.querySelector(".modal_button_delete");
-const modalDelete = document.querySelector('.modal_delete')
-const showModalEdit = document.querySelector(".modal_button_edit");
-const modalEdit = document.querySelector('.modal_edit')
+const showModalButton = document.querySelector(".modal_button");
+const modalDeleteButtons = document.querySelectorAll(".modal_button_delete");
+const modalEditButtons = document.querySelectorAll(".modal_button_edit");
+const modals = document.querySelector('.modal');
+const modalDeleteModals = document.querySelectorAll('.modal_delete');
+const modalEditModals = document.querySelectorAll('.modal_edit');
+const closeModals = document.querySelectorAll('.close_modal');
 
 
-showModal.addEventListener('click',(e)=>{
-  e.preventDefault()
-  modal.classList.add('modal--show')
+showModalButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    modals.classList.add('modal--show');
 });
 
-
-showModalDelete.addEventListener('click',(e)=>{
-  e.preventDefault()
-  modalDelete.classList.add('modal--show')
-  console.log('modalDelete')
-
-});
-
-
-showModalEdit.addEventListener('click',(e)=>{
-  e.preventDefault()
-  modalEdit.classList.add('modal--show')
-  console.log('modalEdit')
-})
-
-
-
-
+  modalDeleteButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = button.dataset.target;
+      const modal = document.querySelector(modalId);
+      modal.classList.add('modal--show');
+    });
+  });
+  
+  modalEditButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = button.dataset.target;
+      const modal = document.querySelector(modalId);
+      modal.classList.add('modal--show');
+    });
+  });
+  
+  closeModals.forEach(closeModal => {
+    closeModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = closeModal.closest('.modal--show');
+      modal.classList.remove('modal--show');
+    });
+  });

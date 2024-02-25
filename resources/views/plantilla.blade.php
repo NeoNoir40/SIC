@@ -7,6 +7,7 @@
     @vite(['resources/js/app.js','resources/sass/app.scss'])
     <title>@yield('titulo')</title>
     @stack('head')
+    
 </head>
 
 <body class="min-h-screen flex flex-col justify-between ">
@@ -79,6 +80,7 @@
             <h1>Todos los derechos resevados </h1>
         </div>
     </footer>
+  
 </body>
 
 </html>
