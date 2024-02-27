@@ -21,13 +21,21 @@ Lista estudiantes
                 <div class="text-red-500" style="color: red;">{{ $message }}</div>
                 @enderror
                 <input class="px-20 py-2 border rounded-md  text-center" type="text" name="last_name" placeholder="Apellido">
+                @error('last_name')
+                <div class="text-red-500" style="color: red;">{{ $message }}</div>
+                @enderror
                 <input class="px-20 py-2 border rounded-md  text-center" type="text" name="id_student" placeholder="Matricula">
                 @error('id_student')
                 <div class="text-red-500" style="color: red;">{{ $message }}</div>
                 @enderror
                 <input class="px-20 py-2 border rounded-md  text-center" type="date" name="birth_date" placeholder="Fecha de nacimieneto">
+                @error('birth_date')
+                <div class="text-red-500" style="color: red;">{{ $message }}</div>
+                @enderror
                 <input class="px-20 py-2 border rounded-md  text-center" type="text" name="comments" placeholder="Descripción del alumno">
-
+                @error('comments')
+                <div class="text-red-500" style="color: red;">{{ $message }}</div>
+                @enderror
 
                 <div class="flex flex-row gap-2">
                     <button class="bg-[#7603f5] p-2 rounded hover:opacity-50 transition-all hover:scale-110 text-white mt-2" type="submit">

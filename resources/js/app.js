@@ -1,3 +1,7 @@
 import './bootstrap';
-import '../sass/app.scss';
-import * as boostrap from 'bootstrap';
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
