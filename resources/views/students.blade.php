@@ -1,11 +1,10 @@
-@vite(['resources/js/app.js','resources/sass/app.scss'])
 @extends('plantilla')
 @section('titulo')
 Lista estudiantes
 @endsection
 @section('contenido')
 <div class="p-20">
-
+          
     <div class="">
         <button class="modal_button m-4 bg-[#7603f5] p-2 rounded hover:opacity-50 transition-all hover:scale-110 text-white mt-2" type="submit"> Agregar estudiante
         </button>
@@ -50,7 +49,11 @@ Lista estudiantes
 
         </div>
     </div>
-
+    @if(session()->has('notificacion'))
+            <div style="color: green;">
+                {{session('notificacion')}}
+            </div>
+    @endif
     <table id="table" class="table table-striped table-hover" style="width:100%">
         <thead class="bg-white text-black ">
             <tr class="">
@@ -61,6 +64,9 @@ Lista estudiantes
                 <th class="border">ID Estudiante</th>
                 <th class="border">Comentarios</th>
                 <th class="rounded-r-md border">Fecha de nacimiento</th>
+                <th class="rounded-r-md border">
+                    Ver
+                </th>
                 <th class="rounded-r-md border">
                     Editar </th>
                 <th class="rounded-r-md border">
@@ -89,16 +95,21 @@ Lista estudiantes
                 <td class=" px-2 py-2 border-b border-l border-r rounded-r-lg w-1/3">
                     {{$student->comments}}
                 </td>
-                <td class=" px-2 py-2 border-b border-l border-r rounded-r-lg ">
+                <td class=" px-2 py-2 border-b border-l border-r rounded-r-lg w-1/4 ">
                     {{$student->birth_date}}
                 </td>
+                <td class="px-2 py-2 border-b border-l border-r rounded-r-lg">
+                    <a  class=" m-4 bg-[#7603f5] p-2 rounded hover:opacity-50 transition-all hover:scale-110 text-white mt-2" href="{{route('estudiantes.show',$student->id)}}">
+                        Mostrar
+                    </a>
+                </td>
                 <td class="border-b border-l border-r rounded-r-lg p-10">
-                    <button class="modal_button_edit" type="button" data-target="#update{{$student->id}}">
+                    <button class="modal_button_edit  m-4 bg-[#7603f5] p-2 rounded hover:opacity-50 transition-all hover:scale-110 text-white mt-2" type="button" data-target="#update{{$student->id}}">
                         Editar
                     </button>
                 </td>
                 <td class=" border-b border-l border-r rounded-r-lg p-10 ">
-                    <button class="modal_button_delete" type="button" data-target="#delete{{$student->id}}">
+                    <button class="modal_button_delete  m-4 bg-[#7603f5] p-2 rounded hover:opacity-50 transition-all hover:scale-110 text-white mt-2" type="button" data-target="#delete{{$student->id}}">
                        Eliminar
                     </button>
                 </td>
@@ -111,9 +122,9 @@ Lista estudiantes
         @endforeach
         
     </table>
+    <div>{{$students->links()}}</div>
 </div>
-<!-- Modal POST -->
-<!-- Modal Update-->
+
 
 
 <script src="{{ asset('js/modal.js') }}"></script>

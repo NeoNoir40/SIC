@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\StudentRequest;
+use Illuminate\Http\RedirectResponse;
 class StudentController extends Controller
 {
     /**
@@ -12,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        // $students = Student::all();
+        $students = Student::paginate(10);
         return view('students',compact('students'));
     }
 
@@ -60,7 +63,9 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $student = Student::find($id);
+        // dd($student);
+        return view('show-student',compact('student'));
     }
 
     /**
@@ -68,25 +73,28 @@ class StudentController extends Controller
      */
     public function edit( $id)
     {
-       
+       $student = Student::find($id);
+         return view('edit-student',compact('student'));    
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id):RedirectResponse
     {
         $students = Student::find($id);
-        $students->student_name = $request->input('student_name');
-        $students->last_name = $request->input('last_name');
-        $students->id_student=$request->input('id_student');
-        $students->birth_date=$request->input('birth_date');
-        $students->comments=$request->input('comments');
+        $students->update($request->all());
+
+        // $students->student_name = $request->input('student_name');
+        // $students->last_name = $request->input('last_name');
+        // $students->id_student=$request->input('id_student');
+        // $students->birth_date=$request->input('birth_date');
+        // $students->comments=$request->input('comments');
     
 
-        $students->save();
-        return redirect()->back();
-    }
+        // $students->save();
+        return redirect('estudiantes')->with('notificacion','Estudiante editado correctamente');
+        }
 
     /**
      * Remove the specified resource from storage.

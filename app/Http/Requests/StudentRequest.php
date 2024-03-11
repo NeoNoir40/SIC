@@ -22,10 +22,10 @@ class StudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'student_name' => 'bail | required | alpha',
-            'id_student' => 'bail | required | numeric ',
-            'email_student' => 'bail | required | email',
-            'password_student' => 'bail | required | between:4,10'
+            'student_name' => '  required   ',
+            // 'id_student' => 'bail | required | numeric ',
+            // 'email_student' => 'bail | required | email',
+            // 'password_student' => 'bail | required | between:4,10'
         ];
     }
 }
